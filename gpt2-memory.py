@@ -23,7 +23,7 @@ output_lens = [96, 224, 480, 992]
 device_int = 0
 device = 'cuda:' + str(device_int)
 
-with open(name+'-length.csv', 'w', newline='') as f:
+with open('result/'+name+'-length.csv', 'w', newline='') as f:
     wr = csv.writer(f)
     wr.writerow(['total length', 'memory'])
 
@@ -65,8 +65,8 @@ with open(name+'-length.csv', 'w', newline='') as f:
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv(name+'-length.csv', header=None)
+df = pd.read_csv('result/'+name+'-length.csv', header=None)
 plt.plot(df)
 df.plot(x=0, y=1, xlabel='total length', ylabel='Bytes', title=name+" memory")
 # plt.show()
-plt.savefig(name+'-length.png')
+plt.savefig('result/'+name+'-length.png')
